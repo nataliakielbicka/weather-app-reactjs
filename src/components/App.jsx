@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import Title from "./views/Title";
 import SearchInput from "./views/SearchInput";
 import FetchData from "./views/FetchData";
-import DisplayWeather from "./views/DisplayWeather";
 import Footer from "./views/Footer";
 
 export default class App extends Component {
@@ -13,7 +12,6 @@ export default class App extends Component {
         <Title/>
         <SearchInput/>
         <FetchData/>
-        <DisplayWeather/>
         <Footer/>
       </div>
     )
