@@ -4,8 +4,16 @@ export default class SearchInput extends Component {
   render() {
     return (
       <div>
-        <label htmlFor="search">Search city:</label>
-        <input type="text" name="search" id="search"/>
+        <form>
+          <input
+            type="search"
+            id="search"
+            placeholder="Search..."
+            value={this.props.cityName}
+            onChange={this.props.handleInputChange}
+            onKeyDown={this.props.handleKeyPress}/>
+          <button onClick={this.props.handleButtonClick}>Search</button>
+        </form>
       </div>
     )
   }
