@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 export default class SearchInput extends Component {
   render() {
+    const {cityName, handleInputChange, handleKeyPress, handleButtonClick} = this.props;
     return (
       <div>
         <form>
@@ -9,10 +10,10 @@ export default class SearchInput extends Component {
             type="search"
             id="search"
             placeholder="Search..."
-            value={this.props.cityName}
-            onChange={this.props.handleInputChange}
-            onKeyDown={this.props.handleKeyPress}/>
-          <button onClick={this.props.handleButtonClick}>Search</button>
+            value={cityName}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyPress}/>
+          <button onClick={handleButtonClick}>Search</button>
         </form>
       </div>
     )

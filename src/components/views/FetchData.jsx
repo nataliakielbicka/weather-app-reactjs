@@ -27,7 +27,9 @@ export default class FetchData extends Component {
 
     }
     fetchData = () => {
-        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.cityName}&units=metric&APPID=e6f4d816d3ade705ec1d8d9701b61e14`;
+        const {cityName} = this.state;
+        const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
+        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`;
         //console.log(apiURL)
         axios
             .get(apiURL)
@@ -56,13 +58,14 @@ export default class FetchData extends Component {
         e.preventDefault();
     }
     render() {
+        const {displayResults} = this.state;
         return (
             <div>
                 <SearchInput
                     cityName={this.state.cityName}
                     handleInputChange={this.handleInputChange}
                     handleKeyPress={this.handleKeyPress}
-                    handleButtonClick={this.handleButtonClick}/> {this.state.displayResults
+                    handleButtonClick={this.handleButtonClick}/> {displayResults
                     ? (<DisplayWeather {...this.state}/>)
                     : null}
             </div>
