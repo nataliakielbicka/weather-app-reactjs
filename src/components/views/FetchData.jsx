@@ -25,18 +25,37 @@ export default class FetchData extends Component {
         this.handleButtonClick = this
             .handleButtonClick
             .bind(this)
-
     }
-    fetchData = () => {
+    showWeather = () => {
+        const CITY_LIST = "city-list.json";
         const {cityName} = this.state;
-        const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
-        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`;
-        //console.log(apiURL)
         axios
-            .get(apiURL)
+            .get(CITY_LIST)
             .then(res => {
-                this.setState({descriptionMain: res.data.weather[0].main, description: res.data.weather[0].description, temperature: res.data.main.temp, weatherIcon: res.data.weather[0].icon, name: res.data.name});
+                let cityNameList = res
+                    .data
+                    .map(i => i.name)
+                if (cityNameList.includes(cityName)) {
+                    const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
+                    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`;
+                    axios
+                        .get(apiURL)
+                        .then(res => {
+                            this.setState({
+                                descriptionMain: res.data.weather[0].main,
+                                description: res.data.weather[0].description,
+                                temperature: res.data.main.temp,
+                                weatherIcon: res.data.weather[0].icon,
+                                name: res.data.name,
+                                displayResults: true
+                            });
+                        });
+                }
+
             })
+            .catch(error => {
+                console.log('error');
+            });
     }
     handleInputChange(e) {
         this.setState({cityName: e.target.value});
@@ -47,16 +66,15 @@ export default class FetchData extends Component {
 
     handleKeyPress(e) {
         if ((e.keyCode === "13") && (this.state.cityName !== "")) {
-            this.fetchData();
+            this.showWeather();
         }
     }
 
     handleButtonClick(e) {
-        if (this.state.cityName !== "") {
-            this.setState({displayResults: true});
-            this.fetchData();
-        }
         e.preventDefault();
+        if (this.state.cityName !== "") {
+            this.showWeather();
+        }
     }
     render() {
         const {displayResults} = this.state;
