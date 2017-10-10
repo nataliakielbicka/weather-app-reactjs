@@ -13,6 +13,7 @@ export default class FetchData extends Component {
             temperature: null,
             weatherIcon: "",
             cityName: "",
+            name: "",
             displayResults: false
         }
         this.handleInputChange = this
@@ -34,7 +35,7 @@ export default class FetchData extends Component {
         axios
             .get(apiURL)
             .then(res => {
-                this.setState({descriptionMain: res.data.weather[0].main, description: res.data.weather[0].description, temperature: res.data.main.temp, weatherIcon: res.data.weather[0].icon});
+                this.setState({descriptionMain: res.data.weather[0].main, description: res.data.weather[0].description, temperature: res.data.main.temp, weatherIcon: res.data.weather[0].icon, name: res.data.name});
             })
     }
     handleInputChange(e) {

@@ -2,10 +2,10 @@ import React, {Component} from "react";
 
 export default class DisplayWeather extends Component {
   render() {
-    const {descriptionMain, description, temperature, weatherIcon, cityName} = this.props;
+    const {descriptionMain, description, temperature, weatherIcon, name} = this.props;
     return (
       <div>
-        <h3>{cityName}</h3>
+        <h2>Weather for: {name}</h2>
         <h4>Sky: {description}</h4>
         <h5>Description: {descriptionMain}</h5>
         <span className="temperature">{temperature}
