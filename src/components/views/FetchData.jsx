@@ -37,7 +37,10 @@ export default class FetchData extends Component {
                 let cityNameList = res
                     .data
                     .map(i => i.name)
-                if (cityNameList.includes(cityName)) {
+                let cityNameListLowerCase = res
+                    .data
+                    .map(i => i.name.toLowerCase())
+                if (cityNameList.includes(cityName) || cityNameListLowerCase.includes(cityName)) {
                     const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
                     const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`;
                     axios
@@ -58,7 +61,7 @@ export default class FetchData extends Component {
 
             })
             .catch(error => {
-                console.log('error');
+                console.log(error);
             });
     }
     handleInputChange(e) {
