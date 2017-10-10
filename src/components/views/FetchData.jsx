@@ -3,6 +3,7 @@ import axios from "axios";
 
 import DisplayWeather from "./DisplayWeather";
 import SearchInput from "./SearchInput";
+import DisplayAlert from "./DisplayAlert";
 
 export default class FetchData extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class FetchData extends Component {
             weatherIcon: "",
             cityName: "",
             name: "",
-            displayResults: false
+            displayResults: false,
+            alertDisplay: false
         }
         this.handleInputChange = this
             .handleInputChange
@@ -50,6 +52,8 @@ export default class FetchData extends Component {
                                 displayResults: true
                             });
                         });
+                } else {
+                    this.setState({alertDisplay: true})
                 }
 
             })
@@ -58,7 +62,7 @@ export default class FetchData extends Component {
             });
     }
     handleInputChange(e) {
-        this.setState({cityName: e.target.value});
+        this.setState({cityName: e.target.value, alertDisplay: false});
         if (e.target.value === "") {
             this.setState({displayResults: false})
         }
@@ -74,17 +78,21 @@ export default class FetchData extends Component {
         e.preventDefault();
         if (this.state.cityName !== "") {
             this.showWeather();
+            this.setState({alertDisplay: false})
         }
     }
     render() {
-        const {displayResults} = this.state;
+        const {displayResults, alertDisplay} = this.state;
         return (
             <div>
                 <SearchInput
                     cityName={this.state.cityName}
                     handleInputChange={this.handleInputChange}
                     handleKeyPress={this.handleKeyPress}
-                    handleButtonClick={this.handleButtonClick}/> {displayResults
+                    handleButtonClick={this.handleButtonClick}/> {alertDisplay
+                    ? (<DisplayAlert/>)
+                    : null}
+                {displayResults
                     ? (<DisplayWeather {...this.state}/>)
                     : null}
             </div>
