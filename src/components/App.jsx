@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 
+import Menu from "./views/Menu";
 import Title from "./views/Title";
-import FetchData from "./views/FetchData";
+import Main from "./views/Main";
 import Footer from "./views/Footer";
 
 export default class App extends Component {
@@ -9,7 +10,8 @@ export default class App extends Component {
     return (
       <div>
         <Title/>
-        <FetchData/>
+        <Menu/>
+        <Main/>
         <Footer/>
       </div>
     )
