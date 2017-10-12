@@ -84,22 +84,6 @@ export default class FetchData extends Component {
             this.showWeather();
             this.setState({alertDisplay: false})
         }
-        const tempLocalStorage = JSON.parse(localStorage.getItem("tempLocalStorage")) || [];
-        const locations = JSON.parse(localStorage.getItem("myLocations")) || [];
-        if (tempLocalStorage.includes(this.state.cityName)) {
-            const myLocations = [
-                this.state.cityName, ...locations
-            ];
-            console.log(myLocations);
-            localStorage.setItem("myLocations", JSON.stringify(myLocations))
-        };
-        if (!tempLocalStorage.includes(this.state.cityName)) {
-            const myTempLocations = [
-                this.state.cityName, ...tempLocalStorage
-            ];
-            console.log(myTempLocations)
-            localStorage.setItem("tempLocalStorage", JSON.stringify(myTempLocations));
-        }
     }
     render() {
         const {displayResults, alertDisplay, cityName} = this.state;
