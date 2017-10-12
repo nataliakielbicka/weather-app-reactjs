@@ -4,6 +4,7 @@ import axios from "axios";
 import DisplayWeather from "./DisplayWeather";
 import SearchInput from "./SearchInput";
 import DisplayAlert from "./DisplayAlert";
+import MyLocations from "./MyLocations";
 
 export default class FetchData extends Component {
     constructor(props) {
@@ -83,6 +84,22 @@ export default class FetchData extends Component {
             this.showWeather();
             this.setState({alertDisplay: false})
         }
+        const tempLocalStorage = JSON.parse(localStorage.getItem("tempLocalStorage")) || [];
+        const locations = JSON.parse(localStorage.getItem("myLocations")) || [];
+        if (tempLocalStorage.includes(this.state.cityName)) {
+            const myLocations = [
+                this.state.cityName, ...locations
+            ];
+            console.log(myLocations);
+            localStorage.setItem("myLocations", JSON.stringify(myLocations))
+        };
+        if (!tempLocalStorage.includes(this.state.cityName)) {
+            const myTempLocations = [
+                this.state.cityName, ...tempLocalStorage
+            ];
+            console.log(myTempLocations)
+            localStorage.setItem("tempLocalStorage", JSON.stringify(myTempLocations));
+        }
     }
     render() {
         const {displayResults, alertDisplay} = this.state;
@@ -98,6 +115,7 @@ export default class FetchData extends Component {
                 {displayResults
                     ? (<DisplayWeather {...this.state}/>)
                     : null}
+                <MyLocations myNewLocation={this.state.cityName}/>
             </div>
         )
     }
