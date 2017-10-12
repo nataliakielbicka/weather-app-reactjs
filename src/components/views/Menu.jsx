@@ -10,7 +10,7 @@ export default class Menu extends Component {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/my-locations">My locations</Link>
+                        <Link to="/show-locations">My locations</Link>
                     </li>
 
                 </ul>
