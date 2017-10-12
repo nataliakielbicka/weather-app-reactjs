@@ -11,8 +11,7 @@ export default class MyLocations extends Component {
             description: "",
             temperature: null,
             weatherIcon: "",
-            cityName: "",
-            name: ""
+            cityName: ""
         }
     }
     addToLocalStorage = (e) => {
@@ -44,7 +43,6 @@ export default class MyLocations extends Component {
                             name: res.data.name,
                             displayResults: true
                         });
-                        // console.log(res.data.weather[0].main)
                     });
             })
         }
