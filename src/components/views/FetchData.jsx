@@ -97,9 +97,13 @@ export default class FetchData extends Component {
                     ? (<DisplayAlert/>)
                     : null}
                 {displayResults
-                    ? (<DisplayWeather {...this.state}/>)
+                    ? (
+                        <div>
+                            <DisplayWeather {...this.state}/>
+                            <MyLocations myNewLocation={cityName} />
+                        </div>
+                    )
                     : null}
-                <MyLocations myNewLocation={cityName}/>
             </div>
         )
     }

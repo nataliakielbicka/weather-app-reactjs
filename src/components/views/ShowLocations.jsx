@@ -8,10 +8,10 @@ export default class ShowLocations extends Component {
         const locationList = myLocations.map((location, index) => {
             return <LocationItem key={index} location={location}/>
         })
-        return <div>
+        return (
             <ul>
                 {locationList}
             </ul>
-        </div>
+        )
     }
 }
