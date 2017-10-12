@@ -1,19 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-//import ShowLocations from "./ShowLocations";
-
 export default class MyLocations extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            descriptionMain: "",
-            description: "",
-            temperature: null,
-            weatherIcon: "",
-            cityName: ""
-        }
-    }
     addToLocalStorage = (e) => {
         e.preventDefault();
         const locations = JSON.parse(localStorage.getItem("myLocations")) || [];
@@ -30,7 +18,7 @@ export default class MyLocations extends Component {
             ];
             localStorage.setItem("myLocations", JSON.stringify(myLocations));
             const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
-            console.log(myLocations)
+            //console.log(myLocations)
             myLocations.map(v => {
                 return axios
                     .get(`https://api.openweathermap.org/data/2.5/weather?q=${v.name}&units=metric&APPID=${API_KEY}`)
