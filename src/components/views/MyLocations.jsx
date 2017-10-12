@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-import ShowLocations from "./ShowLocations";
+//import ShowLocations from "./ShowLocations";
 
 export default class MyLocations extends Component {
     constructor(props) {
@@ -20,13 +20,21 @@ export default class MyLocations extends Component {
         const locations = JSON.parse(localStorage.getItem("myLocations")) || [];
         if (locations.indexOf(this.props.myNewLocation) === -1) {
             const myLocations = [
-                this.props.myNewLocation, ...locations
+                {
+                    cityName: this.props.myNewLocation,
+                    temperature: this.props.myNewTemerature,
+                    description: this.props.myNewDescription,
+                    descriptionMain: this.props.myNewDescriptionMain,
+                    weatherIcon: this.props.myNewWeatherIcon
+                },
+                ...locations
             ];
             localStorage.setItem("myLocations", JSON.stringify(myLocations));
             const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
+            console.log(myLocations)
             myLocations.map(v => {
                 return axios
-                    .get(`https://api.openweathermap.org/data/2.5/weather?q=${v}&units=metric&APPID=${API_KEY}`)
+                    .get(`https://api.openweathermap.org/data/2.5/weather?q=${v.name}&units=metric&APPID=${API_KEY}`)
                     .then(res => {
                         this.setState({
                             descriptionMain: res.data.weather[0].main,

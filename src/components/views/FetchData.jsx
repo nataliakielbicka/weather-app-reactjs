@@ -86,7 +86,7 @@ export default class FetchData extends Component {
         }
     }
     render() {
-        const {displayResults, alertDisplay, cityName} = this.state;
+        const {displayResults, alertDisplay, cityName, temperature, description, descriptionMain, weatherIcon} = this.state;
         return (
             <div>
                 <SearchInput
@@ -100,7 +100,8 @@ export default class FetchData extends Component {
                     ? (
                         <div>
                             <DisplayWeather {...this.state}/>
-                            <MyLocations myNewLocation={cityName} />
+                            <MyLocations myNewLocation={cityName} myNewTemerature={temperature} myNewDescriptionMain={descriptionMain} myNewDescription={description} 
+                            myNewWeatherIcon={weatherIcon} />
                         </div>
                     )
                     : null}
