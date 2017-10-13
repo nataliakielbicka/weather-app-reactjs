@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
 
+import MyGeoLocation from "./MyGeoLocation";
+
 export default class MyWeather extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +29,7 @@ export default class MyWeather extends Component {
         const {myIP} = this.state;
         return (
             <div>
-                {myIP}
+                <MyGeoLocation myIp={myIP}/>
             </div>
         )
     }
