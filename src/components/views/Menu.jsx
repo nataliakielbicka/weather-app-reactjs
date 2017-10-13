@@ -12,7 +12,9 @@ export default class Menu extends Component {
                     <li>
                         <Link to="/my-locations">My locations</Link>
                     </li>
-
+                    <li>
+                        <Link to="/my-weather">My weather</Link>
+                    </li>
                 </ul>
             </nav>
         )
