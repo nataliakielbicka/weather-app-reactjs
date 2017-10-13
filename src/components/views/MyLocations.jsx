@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import axios from "axios";
 
 export default class MyLocations extends Component {
     addToLocalStorage = (e) => {
@@ -7,43 +6,17 @@ export default class MyLocations extends Component {
         const locations = JSON.parse(localStorage.getItem("myLocations")) || [];
         if (locations.indexOf(this.props.myNewLocation) === -1) {
             const myLocations = [
-                {
-                    cityName: this.props.myNewLocation,
-                    temperature: this.props.myNewTemerature,
-                    description: this.props.myNewDescription,
-                    descriptionMain: this.props.myNewDescriptionMain,
-                    weatherIcon: this.props.myNewWeatherIcon
-                },
-                ...locations
+                this.props.myNewLocation, ...locations
             ];
             localStorage.setItem("myLocations", JSON.stringify(myLocations));
-            const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
-            //console.log(myLocations)
-            myLocations.map(v => {
-                return axios
-                    .get(`https://api.openweathermap.org/data/2.5/weather?q=${v.name}&units=metric&APPID=${API_KEY}`)
-                    .then(res => {
-                        this.setState({
-                            descriptionMain: res.data.weather[0].main,
-                            description: res.data.weather[0].description,
-                            temperature: res.data.main.temp,
-                            weatherIcon: res.data.weather[0].icon,
-                            name: res.data.name,
-                            displayResults: true
-                        });
-                    });
-            })
         }
-
     }
     render() {
         return (
-            <div>
-                <button
-                    onClick={this
-                    .addToLocalStorage
-                    .bind(this)}>Add to my Locations</button>
-            </div>
+            <button
+                onClick={this
+                .addToLocalStorage
+                .bind(this)}>Add to my Locations</button>
         )
     }
 }
