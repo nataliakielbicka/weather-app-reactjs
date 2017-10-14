@@ -9,9 +9,11 @@ export default class GoogleMap extends Component {
             zoom: 16
         }
     }
-    componentDidMount() {
-        this.map = this.createMap();
-        this.marker = this.createMarker();
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.lat !== this.props.lat || nextProps.lon !== this.props.lon) {
+            this.map = this.createMap(nextProps);
+            this.marker = this.createMarker(nextProps);
+        }
     }
     componentDidUnMount() {
         google
@@ -20,26 +22,25 @@ export default class GoogleMap extends Component {
             .clearListeners(this.map, "zoom_changed");
     }
 
-    createMap() {
+    createMap = (props) => {
         let mapOptions = {
             zoom: this.state.zoom,
-            center: this.mapCenter()
+            center: this.mapCenter(props)
         }
         return new google
             .maps
             .Map(this.refs.mapCanvas, mapOptions)
     }
-    mapCenter() {
-        // return new google     .maps     .LatLng(this.props.lat, this.props.lng)
+    mapCenter = (props) => {
         return new google
             .maps
-            .LatLng(50.015454999999996, 20.010992899999998)
+            .LatLng(props.lat, props.lon)
     }
-    createMarker() {
+    createMarker = (props) => {
         return new google
             .maps
             .Marker({
-                position: this.mapCenter(),
+                position: this.mapCenter(props),
                 map: this.map
             })
     }
