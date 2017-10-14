@@ -41,7 +41,8 @@ export default class GoogleMap extends Component {
             .maps
             .Marker({
                 position: this.mapCenter(props),
-                map: this.map
+                map: this.map,
+                icon: "marker.png"
             })
     }
     render() {
