@@ -1,36 +1,35 @@
 import React, {Component} from "react";
-import axios from "axios";
 
-import MyGeoLocation from "./MyGeoLocation";
+import MyWeatherData from "./MyWeatherData";
 
 export default class MyWeather extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            myIP: ""
+            latitude: "",
+            longitude: ""
+        }
+        this.getMyLocation = this
+            .getMyLocation
+            .bind(this)
+    }
+    componentDidMount() {
+        this.getMyLocation()
+    }
+    getMyLocation() {
+        const location = window.navigator && window.navigator.geolocation
+
+        if (location) {
+            location.getCurrentPosition(pos => {
+                this.setState({latitude: pos.coords.latitude, longitude: pos.coords.longitude})
+            }, (error) => {
+                this.setState({latitude: 'err-latitude', longitude: 'err-longitude'})
+            })
         }
     }
-    componentDidMount = () => {
-        this.getMyIp()
-    }
 
-    getMyIp = () => {
-        const ipURL = "https://api.ipify.org/?format=json";
-        axios
-            .get(ipURL)
-            .then(res => {
-                this.setState({myIP: res.data.ip});
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
     render() {
-        const {myIP} = this.state;
-        return (
-            <div>
-                <MyGeoLocation myIp={myIP}/>
-            </div>
-        )
+        const {latitude, longitude} = this.state;
+        return (<MyWeatherData lat={latitude} lon={longitude}/>)
     }
 }
