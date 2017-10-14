@@ -15,9 +15,9 @@ export default class MyWeather extends Component {
             .bind(this)
     }
     componentDidMount() {
-        this.getMyLocation()
+        this.getMyLocation();
     }
-    getMyLocation() {
+    getMyLocation = () => {
         const location = window.navigator && window.navigator.geolocation
 
         if (location) {

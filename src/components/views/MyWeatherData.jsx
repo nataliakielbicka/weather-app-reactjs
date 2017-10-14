@@ -12,18 +12,17 @@ export default class MyWeatherData extends Component {
             name: ""
         }
     }
-    componentDidUpdate = () => {
-        this.getMyWeather();
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.lat !== this.props.lat || nextProps.lon !== this.props.lon) {
+            this.getMyWeather(nextProps);
+        }
     }
 
-    getMyWeather = () => {
-        const lat = this.props.lat;
-        const lon = this.props.lon;
-        const API_KEY = "e6f4d816d3ade705ec1d8d9701b61e14";
+    getMyWeather = (props) => {
+        const lat = props.lat;
+        const lon = props.lon;
+        const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
         const weatherURL = `https://api.openweathermap.org/data/2.5/weather?APPID=${API_KEY}&units=metric&lat=${lat}&lon=${lon}`;
-        // const weatherURL =
-        // "https://api.openweathermap.org/data/2.5/weather?APPID=bd5e378503939ddaee76f1
-        // 2 ad7a97608&units=metric&lat=50.015450099999995&lon=20.0110113"
         axios
             .get(weatherURL)
             .then(res => {
