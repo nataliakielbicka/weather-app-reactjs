@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import MyWeatherData from "./MyWeatherData";
+import GoogleMap from "./GoogleMap";
 
 export default class MyWeather extends Component {
     constructor() {
@@ -30,6 +31,11 @@ export default class MyWeather extends Component {
 
     render() {
         const {latitude, longitude} = this.state;
-        return (<MyWeatherData lat={latitude} lon={longitude}/>)
+        return (
+            <div>
+                <MyWeatherData lat={latitude} lon={longitude}/>
+                <GoogleMap lat={latitude} lon={longitude}/>
+            </div>
+        )
     }
 }
