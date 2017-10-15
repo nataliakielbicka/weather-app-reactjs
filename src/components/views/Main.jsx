@@ -8,7 +8,7 @@ import MyWeather from "./MyWeather";
 export default class Main extends Component {
   render() {
     return (
-      <div>
+      <div className="row justify-content-center">
         <Switch>
           <Route exact path="/" component={FetchData}/>
           <Route path="/my-locations" component={ShowLocations}/>

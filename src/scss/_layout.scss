@@ -4,12 +4,14 @@
 
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   color: $dark;
   font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .locations {

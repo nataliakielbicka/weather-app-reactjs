@@ -1,32 +1,24 @@
 import React, {Component} from "react";
-import RaisedButton from "material-ui/RaisedButton";
-import TextField from "material-ui/TextField";
 
 export default class SearchInput extends Component {
   render() {
     const {cityName, handleInputChange, handleKeyPress, handleButtonClick} = this.props;
     return (
-      <div>
-        <form>
-          {/*<input
+      <form className="row">
+        <div className="col-md-8">
+          <input
             type="search"
             id="search"
             placeholder="Search..."
             value={cityName}
             onChange={handleInputChange}
-          onKeyDown={handleKeyPress}/>*/}
+            onKeyDown={handleKeyPress}/>
+        </div>
+        <div className="col-md-4 text-center">
+          <button className="btn btn-default" onClick={handleButtonClick}>Search</button>
+        </div>
 
-            <TextField hintText={cityName}
-            floatingLabelText={cityName}
-            id="search"
-            placeholder="Search..."
-            value={cityName}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyPress}
-          />
-          <RaisedButton label="Search" onClick={handleButtonClick} primary={true}/>
-        </form>
-      </div>
+      </form>
     )
   }
 }

@@ -92,7 +92,7 @@ export default class FetchData extends Component {
             cityName
         } = this.state;
         return (
-            <div>
+            <div className="col-md-offset-3 col-md-6">
                 <SearchInput
                     cityName={this.state.cityName}
                     handleInputChange={this.handleInputChange}
