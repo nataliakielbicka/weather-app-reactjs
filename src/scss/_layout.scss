@@ -14,16 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-.locations {
-  li {
-    list-style: none;
-    display: inline-block;
-    border: 1px solid #000;
-    margin: 0 10px 0 0;
-    padding: 20px;
-  }
-}
-
 html,
 body,
 .google-map {
@@ -37,4 +27,19 @@ body,
     display: block;
     width: 100%;
     height: 100%;
+}
+
+.locations {
+  .card {
+    cursor: pointer;
+    float: left;
+    margin: 20px;
+    width: 25%;
+  }
+  .card-body {
+    padding: 30px;
+  }
+}
+.card-body {
+  padding: 20px 0 0 0;
 }
