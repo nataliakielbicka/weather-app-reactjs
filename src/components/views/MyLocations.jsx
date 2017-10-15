@@ -14,6 +14,7 @@ export default class MyLocations extends Component {
     render() {
         return (
             <button
+                className="btn btn-success"
                 onClick={this
                 .addToLocalStorage
                 .bind(this)}>Add to my Locations</button>
