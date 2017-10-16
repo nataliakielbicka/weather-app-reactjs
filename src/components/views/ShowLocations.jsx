@@ -48,7 +48,7 @@ export default class ShowLocations extends Component {
         const {cityName} = this.state;
         return (
             <div>
-                <ul className="locations d-flex flex-row flex-wrap">
+                <ul className="locations">
                     {locationList}
                 </ul>
                 {cityName
