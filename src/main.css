@@ -355,6 +355,11 @@ body,
     max-width: 30%;
     justify-content: center;
     align-items: center; }
+    .locations__item--active {
+      background-color: #FFAB00; }
+      .locations__item--active .locations__link {
+        color: #212121;
+        font-weight: bold; }
   .locations__link {
     color: #fff;
     text-decoration: none; }

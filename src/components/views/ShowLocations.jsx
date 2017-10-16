@@ -21,7 +21,10 @@ export default class ShowLocations extends Component {
             .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`)
             .then(res => {
                 this.setState({
-                    cityName: res.data.name.toUpperCase(),
+                    cityName: res
+                        .data
+                        .name
+                        .toUpperCase(),
                     descriptionMain: res.data.weather[0].main,
                     description: res.data.weather[0].description,
                     temperature: res.data.main.temp,
@@ -36,9 +39,14 @@ export default class ShowLocations extends Component {
     render() {
         const myLocations = JSON.parse(localStorage.getItem("myLocations")) || [];
         const locationList = myLocations.map((cityName, i) => {
+            let activeItem = ""
+            if (cityName.toLowerCase() === this.state.cityName.toLowerCase()) {
+                activeItem = " locations__item--active"
+            }
             return <LocationItem
                 key={i}
                 cityName={cityName}
+                activeItem={activeItem}
                 getCityWeather={this
                 .getCityWeather
                 .bind(this, cityName)}/>

@@ -134,6 +134,13 @@ body,
     max-width: 30%;
     justify-content: center;
     align-items: center;
+    &--active {
+      background-color: $accent-color;
+      .locations__link {
+        color: #212121;
+        font-weight: bold;
+      }
+    }
   }
   &__link {
     color: #fff;
