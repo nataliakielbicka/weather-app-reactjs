@@ -102,7 +102,7 @@ export default class FetchData extends Component {
                     : null}
                 {displayResults
                     ? (
-                        <div  className="card text-center">
+                        <div>
                             <DisplayWeather {...this.state}/>
                             <MyLocations
                                 myNewLocation={cityName}/>
