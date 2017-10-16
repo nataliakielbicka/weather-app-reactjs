@@ -8,11 +8,13 @@ import Footer from "./views/Footer";
 export default class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Title/>
+      <div>
         <Menu/>
-        <Main/>
-        <Footer/>
+        <div className="container">
+          <Title/>
+          <Main/>
+          <Footer/>
+        </div>
       </div>
     )
   }

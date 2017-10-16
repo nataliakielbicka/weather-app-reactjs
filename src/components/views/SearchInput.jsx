@@ -4,15 +4,15 @@ export default class SearchInput extends Component {
   render() {
     const {cityName, handleInputChange, handleKeyPress, handleButtonClick} = this.props;
     return (
-      <form>
-        <input
+      <form className="form">
+        <input className="form__input"
           type="search"
           id="search"
-          placeholder="Search..."
+          placeholder="Search a city..."
           value={cityName}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}/>
-        <button onClick={handleButtonClick}>Search</button>
+        <button className="form__btn" onClick={handleButtonClick}>Show the weather</button>
       </form>
     )
   }

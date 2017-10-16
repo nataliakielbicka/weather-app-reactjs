@@ -13,7 +13,7 @@ export default class MyLocations extends Component {
     }
     render() {
         return (
-            <button
+            <button className="weather__btn"
                 onClick={this
                 .addToLocalStorage
                 .bind(this)}>Add to my Locations</button>
