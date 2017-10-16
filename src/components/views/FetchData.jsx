@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-import DisplayWeather from "./DisplayWeather";
+import WeatherDescription from "./WeatherDescription";
 import SearchInput from "./SearchInput";
 import DisplayAlert from "./DisplayAlert";
 import MyLocations from "./MyLocations";
@@ -15,7 +15,6 @@ export default class FetchData extends Component {
             temperature: null,
             weatherIcon: "",
             cityName: "",
-            name: "",
             displayResults: false,
             alertDisplay: false
         }
@@ -48,11 +47,11 @@ export default class FetchData extends Component {
                         .get(apiURL)
                         .then(res => {
                             this.setState({
+                                cityName: res.data.name,
                                 descriptionMain: res.data.weather[0].main,
                                 description: res.data.weather[0].description,
                                 temperature: res.data.main.temp,
                                 weatherIcon: res.data.weather[0].icon,
-                                name: res.data.name,
                                 displayResults: true
                             });
                         });
@@ -86,11 +85,7 @@ export default class FetchData extends Component {
         }
     }
     render() {
-        const {
-            displayResults,
-            alertDisplay,
-            cityName
-        } = this.state;
+        const {displayResults, alertDisplay, cityName} = this.state;
         return (
             <div className="col-md-offset-3 col-md-6">
                 <SearchInput
@@ -103,9 +98,8 @@ export default class FetchData extends Component {
                 {displayResults
                     ? (
                         <div className="weather">
-                            <DisplayWeather {...this.state}/>
-                            <MyLocations
-                                myNewLocation={cityName}/>
+                            <WeatherDescription {...this.state}/>
+                            <MyLocations myNewLocation={cityName}/>
                         </div>
                     )
                     : null}
