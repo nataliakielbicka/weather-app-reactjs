@@ -272,13 +272,6 @@ body {
   cursor: pointer;
   margin: 0 10px; }
 
-.locations li {
-  list-style: none;
-  display: inline-block;
-  border: 1px solid #000;
-  margin: 0 10px 0 0;
-  padding: 20px; }
-
 html,
 body,
 .google-map {
@@ -347,8 +340,26 @@ body,
     top: 70px;
     right: 10px; }
 
+.locations {
+  display: flex;
+  flex-wrap: wrap; }
+  .locations__item {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex: 1 0 30%;
+    border: 2px solid #FFAB00;
+    height: 150px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 30%;
+    justify-content: center;
+    align-items: center; }
+  .locations__link {
+    color: #fff;
+    text-decoration: none; }
+
 .footer {
-  position: absolute;
   bottom: 10px;
   width: 100%;
   text-align: center; }
