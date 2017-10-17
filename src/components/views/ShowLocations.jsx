@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-import WeatherDescription from "./WeatherDescription";
 import LocationItem from "./LocationItem";
+import WeatherDescription from "./WeatherDescription";
 
 export default class ShowLocations extends Component {
     constructor() {
