@@ -24,7 +24,7 @@ export default class MyWeather extends Component {
             location.getCurrentPosition(pos => {
                 this.setState({latitude: pos.coords.latitude, longitude: pos.coords.longitude})
             }, (error) => {
-                this.setState({latitude: 'err-latitude', longitude: 'err-longitude'})
+                this.setState({latitude: "err-latitude", longitude: "err-longitude"})
             })
         }
     }
@@ -33,7 +33,9 @@ export default class MyWeather extends Component {
         const {latitude, longitude} = this.state;
         return (
             <div>
-                <MyWeatherData lat={latitude} lon={longitude}/>
+                <div className="weather">
+                    <MyWeatherData lat={latitude} lon={longitude}/>
+                </div>
                 <GoogleMap lat={latitude} lon={longitude}/>
             </div>
         )

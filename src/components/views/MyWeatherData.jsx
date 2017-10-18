@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
 
+import WeatherDescription from "./WeatherDescription";
+
 export default class MyWeatherData extends Component {
     constructor() {
         super();
@@ -9,7 +11,7 @@ export default class MyWeatherData extends Component {
             description: "",
             temperature: null,
             weatherIcon: "",
-            name: ""
+            cityName: ""
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -26,28 +28,14 @@ export default class MyWeatherData extends Component {
         axios
             .get(weatherURL)
             .then(res => {
-                this.setState({descriptionMain: res.data.weather[0].main, description: res.data.weather[0].description, temperature: res.data.main.temp, weatherIcon: res.data.weather[0].icon, name: res.data.name});
+                this.setState({descriptionMain: res.data.weather[0].main, description: res.data.weather[0].description, temperature: res.data.main.temp, weatherIcon: res.data.weather[0].icon, cityName: res.data.name});
             })
             .catch(error => {
                 console.log(error);
             });
     }
     render() {
-        const {descriptionMain, description, temperature, weatherIcon, name} = this.state;
-        return (
-            <div>
-                <h2>Weather for: {name}</h2>
-                <h4>Sky: {description}</h4>
-                <h5>Description: {descriptionMain}</h5>
-                <span className="temperature">{temperature}
-                    °C</span>
-                {weatherIcon
-                    ? (<img
-                        src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
-                        alt={`${description}`}/>)
-                    : null}
-
-            </div>
-        )
+        const {cityName, description, descriptionMain, temperature, weatherIcon} = this.state;
+        return (<WeatherDescription {...this.state}/>)
     }
 }
