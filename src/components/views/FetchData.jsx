@@ -42,7 +42,7 @@ export default class FetchData extends Component {
                     .map(i => i.name.toLowerCase())
                 if (cityNameList.includes(cityName) || cityNameListLowerCase.includes(cityName)) {
                     const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
-                    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`;
+                    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=${API_KEY}`;
                     axios
                         .get(apiURL)
                         .then(res => {

@@ -24,7 +24,7 @@ export default class MyWeatherData extends Component {
         const lat = props.lat;
         const lon = props.lon;
         const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?APPID=${API_KEY}&units=metric&lat=${lat}&lon=${lon}`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?APPID=${API_KEY}&units=imperial&lat=${lat}&lon=${lon}`;
         axios
             .get(weatherURL)
             .then(res => {

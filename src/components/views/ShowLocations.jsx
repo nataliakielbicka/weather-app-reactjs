@@ -18,7 +18,7 @@ export default class ShowLocations extends Component {
     getCityWeather = (cityName) => {
         const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
         axios
-            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`)
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=${API_KEY}`)
             .then(res => {
                 this.setState({
                     cityName: res
