@@ -9,7 +9,7 @@ export default class Main extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={FetchData}/>
+        <Route exact path="/search" component={FetchData}/>
         <Route path="/my-locations" component={ShowLocations}/>
         <Route path="/my-weather" component={MyWeather}/>
       </Switch>
