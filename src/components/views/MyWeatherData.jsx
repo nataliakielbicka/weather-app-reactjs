@@ -35,7 +35,6 @@ export default class MyWeatherData extends Component {
             });
     }
     render() {
-        const {cityName, description, descriptionMain, temperature, weatherIcon} = this.state;
         return (<WeatherDescription {...this.state}/>)
     }
 }
