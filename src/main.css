@@ -253,10 +253,8 @@ textarea {
 
 html {
   overflow-x: hidden;
-  width: 100%; }
-  @media all and (min-width: 992px) {
-    html {
-      height: 100%; } }
+  width: 100%;
+  height: 100%; }
 
 body {
   background-color: #1565C0;
@@ -266,7 +264,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  padding: 60px 0 0 0;
+  padding: 0;
   position: relative; }
 
 .form__btn, .weather__btn {
@@ -281,7 +279,7 @@ body {
 
 .google-map {
   display: none; }
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 768px) {
     .google-map {
       width: 60%;
       display: block;
@@ -301,26 +299,39 @@ body {
 .navbar {
   background-color: #0D47A1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   top: 0;
   position: fixed;
   width: 100%;
   z-index: 9999; }
-  .navbar__menu {
-    float: right; }
+  @media all and (min-width: 600px) {
+    .navbar {
+      justify-content: flex-end; } }
 
-.menu__item {
-  display: inline-block;
-  margin: 0 15px; }
-
-.menu__link {
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase; }
+.menu {
+  padding: 0; }
+  .menu__item {
+    display: block;
+    margin: 0 15px;
+    text-align: center; }
+    @media all and (min-width: 600px) {
+      .menu__item {
+        display: inline-block; } }
+  .menu__link {
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase; }
+    @media all and (min-width: 768px) {
+      .menu__link {
+        font-size: 20px; } }
 
 .title {
-  margin: 50px 0 100px 0;
+  margin: 120px 0 80px 0;
   text-align: center; }
+  @media all and (min-width: 600px) {
+    .title {
+      margin: 100px 0 80px 0; } }
 
 .form {
   display: flex;
