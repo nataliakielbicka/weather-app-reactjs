@@ -348,24 +348,25 @@ body {
   /* Microsoft Edge */
   color: #fff; }
 
-input:focus::-webkit-input-placeholder,
-textarea:focus::-webkit-input-placeholder {
+input:focus::-webkit-input-placeholder {
   font-size: 0; }
 
-input:focus:-moz-placeholder,
-textarea:focus:-moz-placeholder {
+input:focus:-moz-placeholder {
   font-size: 0; }
 
-input:focus::-moz-placeholder,
-textarea:focus::-moz-placeholder {
+input:focus::-moz-placeholder {
   font-size: 0; }
 
-input:focus:-ms-input-placeholder,
-textarea:focus:-ms-input-placeholder {
+input:focus:-ms-input-placeholder {
   font-size: 0; }
 
-.alert {
+.alert,
+.loading {
   text-align: center; }
+
+.loading {
+  font-weight: 300;
+  font-style: italic; }
 
 .weather {
   background-color: #fff;

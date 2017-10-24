@@ -16,7 +16,8 @@ export default class FetchData extends Component {
             weatherIcon: "",
             cityName: "",
             displayResults: false,
-            alertDisplay: false
+            alertDisplay: false,
+            loading: false
         }
         this.handleInputChange = this
             .handleInputChange
@@ -29,6 +30,7 @@ export default class FetchData extends Component {
             .bind(this)
     }
     showWeather = () => {
+        this.setState({loading: true});
         const CITY_LIST = "city-list.json";
         const {cityName} = this.state;
         axios
@@ -49,7 +51,8 @@ export default class FetchData extends Component {
                             description: res.data.weather[0].description,
                             temperature: res.data.main.temp,
                             weatherIcon: res.data.weather[0].icon,
-                            displayResults: true
+                            displayResults: true,
+                            loading: false
                         });
                     });
                 // } else {     this.setState({alertDisplay: true}) }
@@ -79,7 +82,7 @@ export default class FetchData extends Component {
         }
     }
     render() {
-        const {displayResults, alertDisplay, cityName} = this.state;
+        const {displayResults, alertDisplay, cityName, loading} = this.state;
         return (
             <div>
                 <SearchInput
@@ -88,6 +91,9 @@ export default class FetchData extends Component {
                     handleKeyPress={this.handleKeyPress}
                     handleButtonClick={this.handleButtonClick}/> {alertDisplay
                     ? (<DisplayAlert/>)
+                    : null}
+                {loading
+                    ? <h3 className="loading">loading weather...</h3>
                     : null}
                 {displayResults
                     ? (
