@@ -212,22 +212,18 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .locations {
-  display: flex; // flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: flex-start;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
   float: left;
   width: 30%;
   margin: 0;
   padding: 0;
   &__item {
     list-style: none;
-    cursor: pointer;
-    display: flex;
     border: 3px solid $accent-color;
     margin: 0 0 10px 0;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     &--active {
       background-color: $accent-color;
       .locations__link {
@@ -238,7 +234,25 @@ textarea:focus:-ms-input-placeholder {
   }
   &__link {
     color: #fff;
+    display: block;
+    padding: 20px 5px;
+    text-align: center;
     text-decoration: none;
+  }
+  &__remove {
+    border: 2px solid $accent-color;
+    border-radius: 50%;
+    background-color: $accent-color;
+    color: $primary-color-dark;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    line-height: 35px;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
   }
 }
 

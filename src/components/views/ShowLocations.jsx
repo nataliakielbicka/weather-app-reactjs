@@ -12,7 +12,8 @@ export default class ShowLocations extends Component {
             description: "",
             temperature: null,
             weatherIcon: "",
-            cityName: ""
+            cityName: "",
+            locationList: JSON.parse(localStorage.getItem('myLocations')) || []
         }
     }
     getCityWeather = (cityName) => {
@@ -36,6 +37,12 @@ export default class ShowLocations extends Component {
                 console.log(error);
             });
     }
+    removeLocation = (cityName) => {
+        let storedLocations = JSON.parse(localStorage.getItem('myLocations'));
+        storedLocations = storedLocations.filter((item) => item !== cityName)
+        localStorage.setItem('myLocations', JSON.stringify(storedLocations));
+        this.setState({locationList: storedLocations})
+    }
     render() {
         const myLocations = JSON.parse(localStorage.getItem("myLocations")) || [];
         const locationList = myLocations.map((cityName, i) => {
@@ -49,6 +56,9 @@ export default class ShowLocations extends Component {
                 activeItem={activeItem}
                 getCityWeather={this
                 .getCityWeather
+                .bind(this, cityName)}
+                removeLocation={this
+                .removeLocation
                 .bind(this, cityName)}/>
         });
         const {cityName} = this.state;
