@@ -53,7 +53,7 @@ export default class ShowLocations extends Component {
         });
         const {cityName} = this.state;
         return (
-            <div>
+            <div className="my-locations">
                 <ul className="locations">
                     {locationList}
                 </ul>

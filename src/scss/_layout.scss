@@ -1,7 +1,7 @@
-$primary-color-dark : #0D47A1;
-$primary-color : #1565C0;
-$primary-color-light : #42A5F5;
-$accent-color : #FFAB00;
+$primary-color-dark: #0D47A1;
+$primary-color: #1565C0;
+$primary-color-light: #42A5F5;
+$accent-color: #FFAB00;
 $accent-color2: #FFC400;
 * {
   box-sizing: border-box;
@@ -143,6 +143,7 @@ textarea:focus:-ms-input-placeholder {
 .alert {
   text-align: center;
 }
+
 .weather {
   background-color: #fff;
   color: #212121;
@@ -175,19 +176,37 @@ textarea:focus:-ms-input-placeholder {
   }
 }
 
+.my-locations {
+  margin: auto;
+  padding: 10px;
+  @media all and (min-width: 1280px) {
+    max-width: 1200px;
+  }
+  .weather {
+    float: right;
+    margin: 0;
+    width: 70%;
+    @media all and (min-width: 992px) {
+      max-width: 60%;
+    }
+  }
+}
+
 .locations {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  float: left;
+  width: 30%;
+  margin: 0;
+  padding: 0;
   &__item {
     list-style: none;
     cursor: pointer;
     display: flex;
-    flex: 1 0 30%;
-    border: 2px solid $accent-color;
-    height: 150px;
-    margin: 10px;
+    border: 3px solid $accent-color;
+    margin: 0 0 10px 0;
     padding: 20px;
-    max-width: 30%;
     justify-content: center;
     align-items: center;
     &--active {
