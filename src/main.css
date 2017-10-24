@@ -252,9 +252,11 @@ textarea {
   box-sizing: border-box; }
 
 html {
-  height: 100%;
   overflow-x: hidden;
   width: 100%; }
+  @media all and (min-width: 992px) {
+    html {
+      height: 100%; } }
 
 body {
   background-color: #1565C0;
@@ -278,12 +280,16 @@ body {
   margin: 0 10px; }
 
 .google-map {
-  height: 350px;
-  position: absolute;
-  width: 60%;
-  left: 0;
-  right: 0;
-  margin: 0 auto 50px auto; }
+  display: none; }
+  @media all and (min-width: 992px) {
+    .google-map {
+      width: 60%;
+      display: block;
+      height: 350px;
+      left: 0;
+      margin: 0 auto 50px auto;
+      position: absolute;
+      right: 0; } }
 
 .google-map-canvas {
   border-radius: 5px;
@@ -318,13 +324,25 @@ body {
 
 .form {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px; }
+  @media all and (min-width: 600px) {
+    .form {
+      flex-direction: row;
+      margin: 0; } }
   .form__input {
     background-color: transparent;
     border: none;
     border-bottom: 3px solid #FFAB00;
     color: #fff;
+    margin: 0 10px 0 0;
     padding: 12px; }
+  .form__btn {
+    margin: 10px 0 0 0; }
+    @media all and (min-width: 600px) {
+      .form__btn {
+        margin: 0; } }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -373,9 +391,9 @@ input:focus:-ms-input-placeholder {
   color: #212121;
   text-align: center;
   display: block;
-  max-width: 70%;
+  max-width: 90%;
   border-radius: 4px;
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
   overflow: hidden;
   padding: 0 0 20px 0;
   position: relative; }
@@ -397,8 +415,15 @@ input:focus:-ms-input-placeholder {
     position: relative; }
   .weather__alert {
     color: green;
-    position: absolute;
-    top: 15px; }
+    display: block;
+    margin: 10px;
+    position: relative; }
+    @media all and (min-width: 600px) {
+      .weather__alert {
+        display: inline;
+        margin: 0;
+        position: absolute;
+        top: 15px; } }
   .weather__info {
     color: green;
     display: block;
@@ -411,20 +436,30 @@ input:focus:-ms-input-placeholder {
     .my-locations {
       max-width: 1200px; } }
   .my-locations .weather {
-    float: right;
-    margin: 0;
-    width: 70%; }
-    @media all and (min-width: 992px) {
+    width: 90%; }
+    @media all and (min-width: 768px) {
       .my-locations .weather {
-        max-width: 60%; } }
+        float: right;
+        margin: 0;
+        max-width: 50%; } }
 
 .locations {
-  float: left;
-  width: 30%;
-  margin: 0;
+  width: 90%;
+  margin: 0 auto;
   padding: 0; }
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    .locations {
+      float: left;
+      width: 40%;
+      margin: 0; } }
+  @media all and (min-width: 992px) {
+    .locations {
+      float: left;
+      width: 30%;
+      margin: 0; } }
   .locations__item {
     list-style: none;
+    border-radius: 4px;
     border: 3px solid #FFAB00;
     margin: 0 0 10px 0;
     position: relative; }
