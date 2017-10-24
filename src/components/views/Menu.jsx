@@ -7,7 +7,7 @@ export default class Menu extends Component {
             <nav className="navbar">
                 <ul className="navbar__menu menu">
                     <li className="menu__item">
-                        <Link to="/search" className="menu__link">Search</Link>
+                        <Link to="/" className="menu__link">Home</Link>
                     </li>
                     <li className="menu__item">
                         <Link to="/my-locations" className="menu__link">My locations</Link>
