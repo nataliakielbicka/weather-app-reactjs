@@ -32,7 +32,7 @@ export default class MyWeather extends Component {
     render() {
         const {latitude, longitude} = this.state;
         return (
-            <div>
+            <div className="my-weather">
                 <div className="weather">
                     <MyWeatherData lat={latitude} lon={longitude}/>
                 </div>
