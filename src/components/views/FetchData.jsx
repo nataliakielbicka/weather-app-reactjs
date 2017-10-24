@@ -34,31 +34,25 @@ export default class FetchData extends Component {
         axios
             .get(CITY_LIST)
             .then(res => {
-                let cityNameList = res
-                    .data
-                    .map(i => i.name)
-                let cityNameListLowerCase = res
-                    .data
-                    .map(i => i.name.toLowerCase())
-                if (cityNameList.includes(cityName) || cityNameListLowerCase.includes(cityName)) {
-                    const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
-                    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=${API_KEY}`;
-                    axios
-                        .get(apiURL)
-                        .then(res => {
-                            this.setState({
-                                cityName: res.data.name,
-                                descriptionMain: res.data.weather[0].main,
-                                description: res.data.weather[0].description,
-                                temperature: res.data.main.temp,
-                                weatherIcon: res.data.weather[0].icon,
-                                displayResults: true
-                            });
+                // let cityNameList = res     .data     .map(i => i.name) let
+                // cityNameListLowerCase = res     .data     .map(i => i.name.toLowerCase()) if
+                // (cityNameList.includes(cityName) || cityNameListLowerCase.includes(cityName))
+                // {
+                const API_KEY = "bd5e378503939ddaee76f12ad7a97608";
+                const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=${API_KEY}`;
+                axios
+                    .get(apiURL)
+                    .then(res => {
+                        this.setState({
+                            cityName: res.data.name,
+                            descriptionMain: res.data.weather[0].main,
+                            description: res.data.weather[0].description,
+                            temperature: res.data.main.temp,
+                            weatherIcon: res.data.weather[0].icon,
+                            displayResults: true
                         });
-                } else {
-                    this.setState({alertDisplay: true})
-                }
-
+                    });
+                // } else {     this.setState({alertDisplay: true}) }
             })
             .catch(error => {
                 console.log(error);
