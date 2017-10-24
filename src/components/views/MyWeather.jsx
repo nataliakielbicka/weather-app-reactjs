@@ -18,13 +18,13 @@ export default class MyWeather extends Component {
         this.getMyLocation();
     }
     getMyLocation = () => {
+        this.setState({latitude: 52.23, longitude: 21.01})
         const location = window.navigator && window.navigator.geolocation
-
         if (location) {
             location.getCurrentPosition(pos => {
                 this.setState({latitude: pos.coords.latitude, longitude: pos.coords.longitude})
             }, (error) => {
-                this.setState({latitude: "err-latitude", longitude: "err-longitude"})
+                this.setState({latitude: 52.23, longitude: 21.01})
             })
         }
     }
