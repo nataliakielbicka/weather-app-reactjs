@@ -1,0 +1,52 @@
+.weather {
+    background-color: #fff;
+    color: #212121;
+    text-align: center;
+    display: block;
+    max-width: 90%;
+    border-radius: 4px;
+    margin: 50px auto 0 auto;
+    overflow: hidden;
+    padding: 0 0 20px 0;
+    position: relative;
+    @media all and (min-width: 992px) {
+        max-width: 50%;
+    }
+    &__header {
+        background-color: $primary-color-light;
+        color: #fff;
+        margin: 0 0 20px 0;
+        padding: 15px;
+    }
+    &__temperature {
+        font-size: 150%;
+    }
+    &__icon {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+    }
+    &__btn {
+        @extend %btn;
+    }
+    &__addto {
+        position: relative;
+    }
+    &__alert {
+        color: green;
+        display: block;
+        margin: 10px;
+        position: relative;
+        @media all and (min-width: 600px) {
+            display: inline;
+            margin: 0;
+            position: absolute;
+            top: 15px;
+        }
+    }
+    &__info {
+        color: green;
+        display: block;
+        text-align: center;
+    }
+}

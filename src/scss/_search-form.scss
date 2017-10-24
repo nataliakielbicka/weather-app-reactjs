@@ -1,0 +1,78 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    @media all and (min-width: 600px) {
+        flex-direction: row;
+        margin: 0;
+    }
+    &__input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 3px solid $accent-color;
+        color: #fff;
+        margin: 0 10px 0 0;
+        padding: 12px;
+    }
+    &__btn {
+        @extend %btn;
+        margin: 10px 0 0 0;
+        @media all and (min-width: 600px) {
+            margin: 0;
+        }
+    }
+}
+
+ ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #fff;
+}
+
+ :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+    opacity: 1;
+}
+
+ ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #fff;
+    opacity: 1;
+}
+
+ :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #fff;
+}
+
+ ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #fff;
+}
+
+input:focus::-webkit-input-placeholder {
+    font-size: 0;
+}
+
+input:focus:-moz-placeholder {
+    font-size: 0;
+}
+
+input:focus::-moz-placeholder {
+    font-size: 0;
+}
+
+input:focus:-ms-input-placeholder {
+    font-size: 0;
+}
+
+.alert,
+.loading {
+    text-align: center;
+}
+
+.loading {
+    font-weight: 300;
+    font-style: italic;
+}

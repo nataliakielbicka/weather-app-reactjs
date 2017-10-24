@@ -1,0 +1,67 @@
+.my-locations {
+    margin: auto;
+    padding: 10px;
+    @media all and (min-width: 1280px) {
+        max-width: 1200px;
+    }
+    .weather {
+        width: 90%;
+        @media all and (min-width: 768px) {
+            float: right;
+            margin: 0;
+            max-width: 50%;
+        }
+    }
+}
+
+.locations {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    @media all and (min-width: 768px) and (max-width: 991px) {
+        float: left;
+        width: 40%;
+        margin: 0;
+    }
+    @media all and (min-width: 992px) {
+        float: left;
+        width: 30%;
+        margin: 0;
+    }
+    &__item {
+        list-style: none;
+        border-radius: 4px;
+        border: 3px solid $accent-color;
+        margin: 0 0 10px 0;
+        position: relative;
+        &--active {
+            background-color: $accent-color;
+            .locations__link {
+                color: #212121;
+                font-weight: bold;
+            }
+        }
+    }
+    &__link {
+        color: #fff;
+        display: block;
+        padding: 20px 5px;
+        text-align: center;
+        text-decoration: none;
+    }
+    &__remove {
+        border: 2px solid $accent-color;
+        border-radius: 50%;
+        background-color: $accent-color;
+        color: $primary-color-dark;
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        line-height: 35px;
+        right: 10px;
+        top: 10px;
+        text-align: center;
+        text-decoration: none;
+        position: absolute;
+    }
+}

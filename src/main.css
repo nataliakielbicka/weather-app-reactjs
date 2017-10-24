@@ -248,6 +248,16 @@ textarea {
 [hidden] {
   display: none; }
 
+.form__btn, .weather__btn {
+  background-color: #FFAB00;
+  border: 3px solid #FFAB00;
+  border-radius: 5px;
+  color: #212121;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 10px; }
+
 * {
   box-sizing: border-box; }
 
@@ -267,34 +277,28 @@ body {
   padding: 0;
   position: relative; }
 
-.form__btn, .weather__btn {
-  background-color: #FFAB00;
-  border: 3px solid #FFAB00;
-  border-radius: 5px;
-  color: #212121;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 20px;
-  margin: 0 10px; }
+.wrapper {
+  margin: 0 0 10px 0;
+  position: relative;
+  height: 100%; }
 
-.google-map {
-  display: none; }
-  @media all and (min-width: 768px) {
-    .google-map {
-      width: 60%;
-      display: block;
-      height: 350px;
-      left: 0;
-      margin: 0 auto 50px auto;
-      position: absolute;
-      right: 0; } }
+.main-wrapper {
+  height: calc(100% - 60px);
+  position: relative; }
 
-.google-map-canvas {
-  border-radius: 5px;
-  top: 20px;
-  display: block;
-  height: 100%;
-  width: 100%; }
+.title {
+  margin: 120px 0 80px 0;
+  text-align: center; }
+  @media all and (min-width: 600px) {
+    .title {
+      margin: 100px 0 80px 0; } }
+
+.footer {
+  clear: both;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center; }
 
 .navbar {
   background-color: #0D47A1;
@@ -325,13 +329,6 @@ body {
     @media all and (min-width: 768px) {
       .menu__link {
         font-size: 20px; } }
-
-.title {
-  margin: 120px 0 80px 0;
-  text-align: center; }
-  @media all and (min-width: 600px) {
-    .title {
-      margin: 100px 0 80px 0; } }
 
 .form {
   display: flex;
@@ -500,18 +497,21 @@ input:focus:-ms-input-placeholder {
     text-decoration: none;
     position: absolute; }
 
-.wrapper {
-  margin: 0 0 10px 0;
-  position: relative;
-  height: 100%; }
+.google-map {
+  display: none; }
+  @media all and (min-width: 768px) {
+    .google-map {
+      width: 60%;
+      display: block;
+      height: 350px;
+      left: 0;
+      margin: 0 auto 50px auto;
+      position: absolute;
+      right: 0; } }
 
-.main-wrapper {
-  height: calc(100% - 60px);
-  position: relative; }
-
-.footer {
-  clear: both;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center; }
+.google-map-canvas {
+  border-radius: 5px;
+  top: 20px;
+  display: block;
+  height: 100%;
+  width: 100%; }
