@@ -180,6 +180,19 @@ textarea:focus:-ms-input-placeholder {
   &__btn {
     @extend %btn;
   }
+  &__addto {
+    position: relative;
+  }
+  &__alert {
+    color: green;
+    position: absolute;
+    top: 15px;
+  }
+  &__info {
+    color: green;
+    display: block;
+    text-align: center;
+  }
 }
 
 .my-locations {

@@ -375,6 +375,7 @@ textarea:focus:-ms-input-placeholder {
   max-width: 70%;
   border-radius: 4px;
   margin: 50px auto;
+  overflow: hidden;
   padding: 0 0 20px 0;
   position: relative; }
   @media all and (min-width: 992px) {
@@ -391,6 +392,16 @@ textarea:focus:-ms-input-placeholder {
     position: absolute;
     top: 70px;
     right: 10px; }
+  .weather__addto {
+    position: relative; }
+  .weather__alert {
+    color: green;
+    position: absolute;
+    top: 15px; }
+  .weather__info {
+    color: green;
+    display: block;
+    text-align: center; }
 
 .my-locations {
   margin: auto;
