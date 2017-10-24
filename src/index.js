@@ -6,7 +6,7 @@ import "./main.css";
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDom.render((
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App/>
     </BrowserRouter>
   ), document.querySelector("#root"))
