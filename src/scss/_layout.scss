@@ -10,6 +10,7 @@ $accent-color2: #FFC400;
 html {
   height: 100%;
   overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -18,8 +19,10 @@ body {
   font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   font-size: 120%;
   height: 100%;
+  width: 100%;
   overflow-x: hidden;
   padding: 60px 0 0 0;
+  position: relative;
 }
 
 %btn {
@@ -33,19 +36,18 @@ body {
   margin: 0 10px;
 }
 
-html,
-body,
 .google-map {
-  height: 100%;
-  position: absolute;
-  width: 100%;
+  height: 400px;
+  position: relative;
+  width: 80%;
+  margin: 0 auto 70px auto;
 }
 
 .google-map-canvas {
   top: 20px;
   display: block;
-  width: 100%;
   height: 100%;
+  position: absolute;
 }
 
 .navbar {
@@ -222,10 +224,19 @@ textarea:focus:-ms-input-placeholder {
     text-decoration: none;
   }
 }
-
+.wrapper {
+  margin: 0 0 10px 0;
+  position: relative;
+  height: 100%;
+}
+.main-wrapper {
+  height: calc(100% - 60px);
+  position: relative;
+}
 .footer {
+  clear: both;
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
   width: 100%;
   text-align: center;
 }

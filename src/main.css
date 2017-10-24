@@ -253,7 +253,8 @@ textarea {
 
 html {
   height: 100%;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  width: 100%; }
 
 body {
   background-color: #1565C0;
@@ -261,8 +262,10 @@ body {
   font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   font-size: 120%;
   height: 100%;
+  width: 100%;
   overflow-x: hidden;
-  padding: 60px 0 0 0; }
+  padding: 60px 0 0 0;
+  position: relative; }
 
 .form__btn, .weather__btn {
   background-color: #FFAB00;
@@ -274,18 +277,17 @@ body {
   padding: 10px 20px;
   margin: 0 10px; }
 
-html,
-body,
 .google-map {
-  height: 100%;
-  position: absolute;
-  width: 100%; }
+  height: 400px;
+  position: relative;
+  width: 80%;
+  margin: 0 auto 70px auto; }
 
 .google-map-canvas {
   top: 20px;
   display: block;
-  width: 100%;
-  height: 100%; }
+  height: 100%;
+  position: absolute; }
 
 .navbar {
   background-color: #0D47A1;
@@ -427,8 +429,18 @@ textarea:focus:-ms-input-placeholder {
     color: #fff;
     text-decoration: none; }
 
+.wrapper {
+  margin: 0 0 10px 0;
+  position: relative;
+  height: 100%; }
+
+.main-wrapper {
+  height: calc(100% - 60px);
+  position: relative; }
+
 .footer {
+  clear: both;
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
   width: 100%;
   text-align: center; }
