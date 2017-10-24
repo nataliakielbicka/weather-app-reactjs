@@ -266,10 +266,12 @@ body {
 
 .form__btn, .weather__btn {
   background-color: #FFAB00;
-  border: 2px solid #FFAB00;
-  border-radius: 4px;
+  border: 3px solid #FFAB00;
+  border-radius: 5px;
   color: #212121;
   cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
   margin: 0 10px; }
 
 html,
@@ -315,19 +317,64 @@ body,
   .form__input {
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid #FFAB00;
-    color: #fff; }
+    border-bottom: 3px solid #FFAB00;
+    color: #fff;
+    padding: 12px; }
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff; }
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  font-size: 0; }
+
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder {
+  font-size: 0; }
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  font-size: 0; }
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
+  font-size: 0; }
+
+.alert {
+  text-align: center; }
 
 .weather {
   background-color: #fff;
   color: #212121;
   text-align: center;
   display: block;
-  max-width: 60%;
+  max-width: 70%;
   border-radius: 4px;
   margin: 50px auto;
   padding: 0 0 20px 0;
   position: relative; }
+  @media all and (min-width: 992px) {
+    .weather {
+      max-width: 50%; } }
   .weather__header {
     background-color: #42A5F5;
     color: #fff;
@@ -365,6 +412,7 @@ body,
     text-decoration: none; }
 
 .footer {
+  position: absolute;
   bottom: 10px;
   width: 100%;
   text-align: center; }

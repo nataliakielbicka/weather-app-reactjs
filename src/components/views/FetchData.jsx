@@ -87,7 +87,7 @@ export default class FetchData extends Component {
     render() {
         const {displayResults, alertDisplay, cityName} = this.state;
         return (
-            <div className="col-md-offset-3 col-md-6">
+            <div>
                 <SearchInput
                     cityName={this.state.cityName}
                     handleInputChange={this.handleInputChange}
